@@ -1,0 +1,20 @@
+breakPoints = {
+  xs:780,
+  sm:781
+}
+
+.row 
+  lost-utility clearfix
+  box-sizing border-box
+
+for num in (1..12)
+  for k, v in breakPoints
+    if k == 'xs'
+      +below(v px)
+        .col-{k}-{num}
+          lost-column num / 12
+
+    if k == 'sm'
+      +above(v px)
+        .col-{k}-{num}
+          lost-column num / 12
