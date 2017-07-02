@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
     <title>Gympass Test</title>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css">
     <link rel="stylesheet" href="assets/css/main.css">
   </head>
   <body><!--[if lt IE 8]>
@@ -12,9 +13,79 @@
       Please <a href="http://browsehappy.com/">upgrade your browser</a>
       to improve your experience.
     </p><![endif]-->
-    <header class="Header u-clearfix">Header</header>
-    <main class="Main"></main>
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <header class="header _clearfix"><img class="logo" src="assets/images/logo.png" alt="">
+      <ul class="menu">
+        <li class="item"><a class="link" href="#">Academias</a></li>
+        <li class="item"> <a class="link" href="#">Como funciona</a></li>
+        <li class="item"><a class="link" href="#">Para sua empresa</a></li>
+        <li class="item"><a class="link" href="#">Blog</a></li>
+      </ul>
+      <ul class="menu _pull-right">
+        <li class="item"><a class="link" href="#">Cadastro</a></li>
+        <li class="item"><a class="link" href="#">Login</a></li>
+      </ul>
+    </header>
+    <main>
+      <div class="hero">
+        <div class="wrapper">
+          <h1 class="title">Plano Gympass</h1>
+          <ul class="features">
+            <li class="item">Plano mensal.</li>
+            <li class="item">Utilize todas as academias com mensalidade igual ou menor do que o plano selecionado</li>
+            <li class="item">A cada dia, escolha a academia que preferir e tenha uma rotina saudável.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="section wrapper" id="details">
+        <h2 class="title">Detalhes do plano</h2>
+        <p class="description _text-center">
+          Acesse milhares de academias pagando uma unica mensalidade. <br>
+          Voce pode utilizar a mesma academia ou academias diferentes <br>
+          todos os dias, basta que o valor da mensalidade seja igual ou menor <br>
+          do que o piano selecionado. <br>
+        </p>
+        <p class="description _text-center">
+          Por exemplo, com a mensalidade de R$ 199,90 voce pode frequentar <br>
+          a academia quando desejar. A unica limitacao é a utilizacao de uma <br>
+          Cinica academia por dia.
+        </p>
+        <div class="row">
+          <div class="icon-content col-sm-4"><img class="icon" src="assets/images/map.png" alt="">
+            <h3 class="title">Academias Incluídas</h3>
+            <p class="description">
+               lnclui todas as academias cuja mensalidade <br>
+              for menor ou igual à que voce estiver <br>
+              pagando, em qualquer cidade do Brasil ou <br>
+              nos países onde Gympass estiver presente.
+            </p>
+          </div>
+          <div class="icon-content col-sm-4"><img class="icon" src="assets/images/modality.png" alt="">
+            <h3 class="title">Modalidades Incluídas</h3>
+            <p class="description">
+               lnclui todas as modalidades cuja mensalidade
+              for menor ou igual à que voce estiver
+              pagando. Você pode fazer Musculacao,
+              Pilates, Yoga, etc...
+            </p>
+          </div>
+          <div class="icon-content col-sm-4"><img class="icon" src="assets/images/payment.png" alt="">
+            <h3 class="title">Forma de Pagamento</h3>
+            <p class="description">
+               Adesão e pagamento exclusivamente pelo <br>
+              site, via cartão de credito.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="section -dark" id="modality">
+        <h2 class="title">Modalidades Disponíveis</h2>
+        <div id="modality-carousel"></div>
+      </div>
+    </main>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
     <script src="assets/js/main.js"></script>
     <footer class="Footer u-textCenter">Footer</footer>
   </body>

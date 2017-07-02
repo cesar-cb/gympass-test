@@ -7,6 +7,7 @@ html(lang="pt-br")
 
     block title
       title Default Title
+    link(rel="stylesheet", href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css")
     link(rel="stylesheet", href="assets/css/main.css")
 
 
@@ -19,14 +20,33 @@ html(lang="pt-br")
     <![endif]-->
 
 
-      header.Header.u-clearfix
-        | Header
+      header.header._clearfix
+        img(src="assets/images/logo.png", alt="", class="logo")
+        ul.menu
+          li.item
+            a(href="#", class="link") Academias
+          li.item 
+            a(href="#", class="link") Como funciona
+          li.item
+            a(href="#", class="link") Para sua empresa
+          li.item
+            a(href="#", class="link") Blog
+          
+
+        ul.menu._pull-right
+          li.item
+            a(href="#", class="link") Cadastro
+          li.item
+            a(href="#", class="link") Login
 
 
       block main
 
 
-      script(src="http://code.jquery.com/jquery-1.11.3.min.js")
+      script(src="//code.jquery.com/jquery-1.11.3.min.js")
+      script(src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js")
+      script(src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js")
+      script(src="//cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js")
       script(src="assets/js/main.js")
 
       footer.Footer.u-textCenter

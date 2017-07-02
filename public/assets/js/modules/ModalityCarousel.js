@@ -1,4 +1,4 @@
-export default class ImportMe {
+export default class ModalityCarousel {
     constructor() {
         alert('import')
     }

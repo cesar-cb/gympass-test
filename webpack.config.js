@@ -1,7 +1,9 @@
+var path = require("path");
+
 module.exports = {
-  entry: './app/assets/js/main.js',
+  entry: path.resolve(__dirname, "app/assets/js/main.js"),
   output: {
-    path: __dirname + '/public/assets/js',
+    path: path.join(__dirname, 'public/assets/js'),
     filename: 'main.js'
   },
   devtool: 'source-map',

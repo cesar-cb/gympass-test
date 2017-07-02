@@ -70,7 +70,7 @@ gulp.task('pug', function() {
 });
 
 gulp.task('moveAssets', function() {
-    return gulp.src(path.appAssets + '/**/*')
+    return gulp.src([path.appAssets + '/**/images/**', path.appAssets + '/**/json/**'])
     .pipe(gulp.dest(path.buildAssets));
 });
 
@@ -123,13 +123,16 @@ gulp.task('serve', function() {
 });
 
 // Default task run all and watch files
-gulp.task('default',['pug', 'styles', 'serve', 'images', 'moveAssets', 'webpack'] ,function() {
+gulp.task('default',['pug', 'styles', 'serve', 'images','moveAssets', 'webpack'] ,function() {
 
     // Livereload Files
     gulp.watch(path.build + '/**/*.html').on('change', browserSync.reload);
 
     gulp.watch(path.buildAssets + '/**/.js').on('change', browserSync.reload);
+
     gulp.watch(path.appJs + '/**/*.js').on('change', browserSync.reload);
+
+    gulp.watch(path.app + '/**/*.pug').on('change', browserSync.reload);;
 
     // Tasks Watch
     gulp.watch(path.app + '/**/*.pug',['pug']);
