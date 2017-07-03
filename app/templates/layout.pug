@@ -1,0 +1,61 @@
+doctype
+html(lang="pt-br")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+
+
+    block title
+      title Default Title
+    link(rel="stylesheet", href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css")
+    link(rel="stylesheet", href="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css")
+    link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+    link(rel="stylesheet", href="assets/css/main.css")
+
+
+  body
+    <!--[if lt IE 8]>
+    p.browsehappy
+      | You are using an <strong>outdated</strong> browser.
+      | Please <a href="http://browsehappy.com/">upgrade your browser</a>
+      | to improve your experience.
+    <![endif]-->
+
+
+      header.header._clearfix
+        img(src="assets/images/logo.png", alt="", class="logo")
+        i.bars.fa.fa-bars.js-toggle-menu._pull-right
+        ul.menu.js-header-menu
+          li.item
+            a(href="#", class="link") Academias
+          li.item 
+            a(href="#", class="link") Como funciona
+          li.item
+            a(href="#", class="link") Para sua empresa
+          li.item
+            a(href="#", class="link") Blog
+          
+
+        ul.menu.js-header-menu.-right
+          li.item
+            a(href="#", class="link") Cadastro
+          li.item
+            a(href="#", class="link") Login
+
+        
+
+
+      block main
+
+
+      script(src="//code.jquery.com/jquery-1.11.3.min.js")
+      script(src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js")
+      script(src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js")
+      script(src="//cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js")
+      script(src="assets/js/main.js")
+
+      footer.email-cta
+        h2.title Receba dicas fitness e descontos Gympass no seu email
+        form.form(action="")
+          input.input(type="text")
+          input.button(type="submit", value="Cadastrar")
