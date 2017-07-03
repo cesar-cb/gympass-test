@@ -2,9 +2,9 @@
 
 ## Instruções
 
-1. Installar o  [NodeJs](https://nodejs.org/en/)
-2. Installar o Gulp no ambiente global ```npm install -g gulp```
-3. Installar as dependências do projeto ```npm install```
+1. Instalar o [NodeJs](https://nodejs.org/en/)
+2. Instalar o Gulp no ambiente global ```npm install -g gulp```
+3. Instalar as dependências do projeto ```npm install```
 4. Rodar o comando ```gulp```
 
 ## Escolhas tecnicas
