@@ -1,0 +1,36 @@
+htags( $factor = 1 )
+  h1, h2, h3, h4, h5, h6
+    font-family $htag_family
+    line-height $htag_lineheight
+    font-weight $htag_weight
+    color $htag_color
+
+  for i in (1..4)
+    h{i}
+      $value = $htag_sizes[i - 1]
+      font-size $value * 1em
+      margin: $htag_vmargins[i - 1] 0
+      
+
+grid($direction, $width , $gutter = 0)
+  $calc = s("calc(%s - %s)", $width, $gutter)
+  float $direction
+  width $calc
+  if $direction == left
+    margin-right $gutter
+  if $direction == right
+    margin-left $gutter
+
+
+
+em( value,context = $base__font-size ) {
+  
+  return (value / context)em
+  
+}
+
+collapse()
+  section,article,header,div,dl,dt,dd,ul,ol,li,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
+    padding: 0.1px 0;
+  }
+

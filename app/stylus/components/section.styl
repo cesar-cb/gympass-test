@@ -1,0 +1,22 @@
+.section 
+    padding-top 90px
+    padding-bottom 90px
+    box-sizing border-box
+    +below('tablet')
+        padding-top 30px
+        padding-bottom 30px 
+
+    &.-dark
+        background-color $gray-4
+
+    &.-light-dark
+        background-color $gray-5
+
+    > .title
+        margin-bottom 50px
+        font-size 35px
+        color: $gray-2
+        text-align center
+
+    > .description
+        font-size 18px

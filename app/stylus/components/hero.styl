@@ -1,0 +1,29 @@
+.hero
+    height 615px
+    background: url('../images/imageTop.png') no-repeat center
+    background-size cover
+    padding-top 100px
+    box-sizing border-box
+
+    .wrapper > .title
+        margin-top 0
+        margin-bottom 85px
+        color $white
+        +at('mobile')
+            margin-bottom 35px
+
+    .wrapper > .features 
+        width 520px
+        margin-left 25px
+        +at('mobile')
+            width 240px
+            margin-left 15px
+
+    .wrapper > .features > .item
+        margin-bottom 10px
+        font-size 25px
+        line-height 1.2
+        color $white
+        +at('mobile')
+            font-size 18px
+            line-height 1.4
