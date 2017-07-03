@@ -13,7 +13,7 @@ block main
           li.item Utilize todas as academias com mensalidade igual ou menor do que o plano selecionado
           li.item A cada dia, escolha a academia que preferir e tenha uma rotina saudável.
 
-    .section.wrapper#details
+    section.section.wrapper#details
       h2.title Detalhes do plano
 
       p.description._text-center
@@ -29,7 +29,7 @@ block main
 
 
       .row
-        .icon-content.col-sm-4
+        article.icon-content.col-sm-4
           img.icon(src="assets/images/map.png", alt="")
           h3.title Academias Incluídas
           p.description 
@@ -38,7 +38,7 @@ block main
             | pagando, em qualquer cidade do Brasil ou <br>
             | nos países onde Gympass estiver presente.
 
-        .icon-content.col-sm-4
+        article.icon-content.col-sm-4
           img.icon(src="assets/images/modality.png", alt="")
           h3.title Modalidades Incluídas
           p.description 
@@ -47,44 +47,67 @@ block main
             | pagando. Você pode fazer Musculacao,
             | Pilates, Yoga, etc...
 
-        .icon-content.col-sm-4
+        article.icon-content.col-sm-4
           img.icon(src="assets/images/payment.png", alt="")
           h3.title Forma de Pagamento
           p.description 
             | Adesão e pagamento exclusivamente pelo <br>
             | site, via cartão de credito.
 
-    .section.-dark#modality
+    section.section.-dark#modality
       h2.title Modalidades Disponíveis
 
-      #modality-carousel
+      .wrapper.-modality
 
-        //- .box-modality
-        //-   h3.title Natação 
-        //-   p.description
-        //-     | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, ut. Recusandae non harum, molestias neque veniam nobis dolor accusamus eius unde odit praesentium cum repellat molestiae. Dolorum, dignissimos animi quibusdam!
+        .checkbox-label
+          input(type="checkbox", class="input js-choose-type", id="aquatic")
+          label(for="aquatic", class="label") Modalidades aquáticas
 
-        //- .box-modality
-        //-   h3.title Natação 
-        //-   p.description
-        //-     | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, ut. Recusandae non harum, molestias neque veniam nobis dolor accusamus eius unde odit praesentium cum repellat molestiae. Dolorum, dignissimos animi quibusdam!
+        .checkbox-label
+          input(type="checkbox", class="input js-choose-type", id="non-aquatic")
+          label(for="non-aquatic", class="label") Modalidades não aquáticas
 
-        //- .box-modality
-        //-   h3.title Natação 
-        //-   p.description
-        //-     | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, ut. Recusandae non harum, molestias neque veniam nobis dolor accusamus eius unde odit praesentium cum repellat molestiae. Dolorum, dignissimos animi quibusdam!
+        #modality-carousel
 
-        //- .box-modality
-        //-   h3.title Natação 
-        //-   p.description
-        //-     | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, ut. Recusandae non harum, molestias neque veniam nobis dolor accusamus eius unde odit praesentium cum repellat molestiae. Dolorum, dignissimos animi quibusdam!
+    
+    section.section.-light-dark#faq
 
-        //- .box-modality
-        //-   h3.title Natação 
-        //-   p.description
-        //-     | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, ut. Recusandae non harum, molestias neque veniam nobis dolor accusamus eius unde odit praesentium cum repellat molestiae. Dolorum, dignissimos animi quibusdam!
+      h2.title Dúvidas Frequentes
 
-        //- .box-modality
-        //-   h3.title Natação 
-        //-   p.description
-        //-     | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, ut. Recusandae non harum, molestias neque veniam nobis dolor accusamus eius unde odit praesentium cum repellat molestiae. Dolorum, dignissimos animi quibusdam!
+      .content
+        .row.wrapper
+          .col-sm-6
+            
+            .faq
+              h3.title Qual a duração do plano? 
+              p.description Duração de 6 meses com renovação automática. 
+            
+            .faq
+              h3.title O plano possui carência?
+              p.description Não. Assim que o benefício Gympass for ativado, você pode utilizar qualquer uma das academias presentes no plano contratado.
+            
+            .faq
+              h3.title Posso pagar aulas particulares para a academia?  
+              p.description Não. O benefício Gympass lhe dá acesso a uma grande rede de academias. Se a academia não for parceira atualmente, <a href="#"> você pode indica-lá </a> e nós entraremos em contato para incluir no plano. Se a academia estiver fora do plano, você pode realizar um upgrade ou contratar um <a href="#">plano personalizado</a>.
+            
+            .faq
+              h3.title Como utilizar? 
+              p.description Após a adesão, você apresenta seu Token Diário a cada entrada na academia para liberação. <a href="#">Saiba mais</a>.
+
+          .col-sm-6._pull-right
+
+            .faq
+              h3.title Como funciona o exame médico?  
+              p.description Para São Paulo, não é necessário fazer avaliação física se você tem mais de 15 e menos de 65 anos. Para as outras cidades é necessário apresentar um atestado médico alegando que você pode realizar atividades físicas, ele tem validade de 6 meses após a emissão.
+              
+              p.description Para modalidades que envolvem piscina, as academias em geral pedem um atestado de saúde declarando que você está apto a utilizar a piscina. Se houver alguma outra obrigatoriedade a academia avisará ao Gympass, que deixará claro na página de informações da academia.
+
+            .faq
+              h3.title Como fazer upgrade de plano? 
+              p.description No momento, o upgrade de planos é feito apenas pelo telefone (11) 3522-7499 ou <a href="#">via chat</a>. 
+
+            .faq
+              h3.title Como cancelar? 
+              p.description Se realizar o cancelamento antecipado das "Diárias Ilimitadas", isto é, antes de completar os primeiros seis meses (período estipulado no produto) das diárias ilimitadas, será cobrada uma multa no valor de 40% das mensalidades restantes. O cancelamento só será efetuado ao final da mensalidade corrente, e enquanto isso o usuário continuará com acesso às academias.
+
+        a.button.-ghost._center-table#full-faq(href="#") Veja o FAQ completo

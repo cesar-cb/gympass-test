@@ -77,20 +77,14 @@ gulp.task('moveAssets', function() {
 
 gulp.task('deploycss', function() {
     gulp.src(path.buildCss + '/main.css')
-    .pipe(uncss({
-        html: [path.build + '/**/*.html'],
-        ignore: ['@media', /^(.*is).*$/gm]
-    }))
     .pipe(minifyCss({compatibility: 'ie8'}))
-    .pipe(rename('main.min.css'))
     .pipe(gulp.dest(path.buildCss));
 });
 
 
 gulp.task('deployjs', function() {
-    gulp.src(path.buildAssets + '/**/*.js')
+    gulp.src(path.buildJs + '/main.js')
     .pipe(uglify())
-    .pipe(rename('all.min.js'))
     .pipe(gulp.dest(path.buildJs));
 });
 
@@ -123,7 +117,7 @@ gulp.task('serve', function() {
 });
 
 // Default task run all and watch files
-gulp.task('default',['pug', 'styles', 'serve', 'images','moveAssets', 'webpack'] ,function() {
+gulp.task('default',['pug', 'styles', 'serve', 'images','moveAssets', 'deployjs', 'deploycss', 'webpack'] ,function() {
 
     // Livereload Files
     gulp.watch(path.build + '/**/*.html').on('change', browserSync.reload);
@@ -144,5 +138,10 @@ gulp.task('default',['pug', 'styles', 'serve', 'images','moveAssets', 'webpack']
     gulp.watch(path.appImages + '/**',['images']);
 
     gulp.watch(path.appAssets + '/**/*', ['moveAssets']);
+
+    // Compile CSS and JS
+    gulp.watch(path.buildCss + '/main.css',['deploycss']);
+
+    gulp.watch(path.buildJs + '/main.js', ['deployjs']);
 
 });

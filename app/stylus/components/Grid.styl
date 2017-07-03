@@ -7,6 +7,16 @@ breakPoints = {
   width 100%
   max-width: 1245px
   margin 0 auto 0 auto
+  box-sizing border-box
+
+  +above('mobile')
+    padding 0 2em
+
+  &.-modality
+    max-width 1345px
+    
+    +above('mobile')
+      padding 0
 
 .row 
   lost-utility clearfix

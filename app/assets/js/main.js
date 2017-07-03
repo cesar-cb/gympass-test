@@ -1,10 +1,10 @@
-import ModalityCarousel  from './modules/ModalityCarousel';
-import ModalityContent  from './modules/ModalityContent';
+import Modality  from './modules/Modality';
+import Menu  from './modules/Menu';
 
-// Init Modality Carousel
-// var modalityCarousel = new ModalityCarousel()
-// modalityCarousel.initCarousel()
+// Init Modality
+var modality = new Modality()
+modality.init()
 
-// Init Modality Content
-var modalityContent = new ModalityContent()
-modalityContent.loadContent()
+
+// Init Mobile Menu Toggle
+var menu = new Menu();

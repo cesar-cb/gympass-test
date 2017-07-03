@@ -46,23 +46,22 @@
 
 	'use strict';
 	
-	var _ModalityCarousel = __webpack_require__(1);
+	var _Modality = __webpack_require__(1);
 	
-	var _ModalityCarousel2 = _interopRequireDefault(_ModalityCarousel);
+	var _Modality2 = _interopRequireDefault(_Modality);
 	
-	var _ModalityContent = __webpack_require__(2);
+	var _Menu = __webpack_require__(2);
 	
-	var _ModalityContent2 = _interopRequireDefault(_ModalityContent);
+	var _Menu2 = _interopRequireDefault(_Menu);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	// Init Modality Carousel
-	// var modalityCarousel = new ModalityCarousel()
-	// modalityCarousel.initCarousel()
+	// Init Modality
+	var modality = new _Modality2.default();
+	modality.init();
 	
-	// Init Modality Content
-	var modalityContent = new _ModalityContent2.default();
-	modalityContent.loadContent();
+	// Init Mobile Menu Toggle
+	var menu = new _Menu2.default();
 
 /***/ }),
 /* 1 */
@@ -86,13 +85,86 @@
 	    }
 	
 	    _createClass(ModalityCarousel, [{
+	        key: 'init',
+	        value: function init() {
+	            var _this = this;
+	
+	            this.loadJSON().then(function (json) {
+	
+	                var classes = json.data;
+	
+	                var template = '\n                    {{#classes}}\n                        <article class="box-modality" data-type="{{type}}">\n                            <h3 class="title">{{title}}</h3>\n                            <p class="description">{{description}}</p>\n                        </article>\n                    {{/classes}}\n                ';
+	
+	                var html = Mustache.to_html(template, classes);
+	
+	                $(_this.selector).append(html);
+	
+	                _this.initCarousel();
+	            });
+	        }
+	    }, {
 	        key: 'initCarousel',
 	        value: function initCarousel() {
-	            console.log('init');
+	            var _this2 = this;
+	
+	            $(this.selector).on('init', function (event, slick, currentSlide, nextSlide) {
+	                _this2.toggleTypes();
+	            });
+	
 	            $(this.selector).slick({
-	                infinite: true,
 	                slidesToShow: 4,
-	                slidesToScroll: 3
+	                slidesToScroll: 2,
+	                infinite: false,
+	                arrows: false,
+	                dots: true,
+	                responsive: [{
+	                    breakpoint: 1024,
+	                    settings: {
+	                        slidesToShow: 2,
+	                        slidesToScroll: 2,
+	                        infinite: false,
+	                        arrows: false,
+	                        dots: true
+	                    }
+	                }, {
+	                    breakpoint: 480,
+	                    settings: {
+	                        slidesToShow: 1,
+	                        slidesToScroll: 1,
+	                        infinite: false,
+	                        arrows: false,
+	                        dots: true
+	                    }
+	                }]
+	            });
+	        }
+	    }, {
+	        key: 'loadJSON',
+	        value: function loadJSON() {
+	            return axios.get("/assets/json/classes.json");
+	        }
+	    }, {
+	        key: 'toggleTypes',
+	        value: function toggleTypes() {
+	
+	            var self = this;
+	
+	            $('.js-choose-type').on('change', function () {
+	
+	                $('.js-choose-type').not(this).prop('checked', false);
+	
+	                var type = $(this).attr('id');
+	
+	                var box = $('.box-modality');
+	
+	                box.css('display', 'block');
+	
+	                if ($(this).is(":checked")) {
+	                    $(self.selector).slick('slickUnfilter');
+	                    $(self.selector).slick('slickFilter', '.box-modality[data-type="' + type + '"]');
+	                } else {
+	                    $(self.selector).slick('slickUnfilter');
+	                }
 	            });
 	        }
 	    }]);
@@ -116,51 +188,31 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	var ModalityCarousel = function () {
-	    function ModalityCarousel() {
-	        _classCallCheck(this, ModalityCarousel);
+	var Menu = function () {
+	    function Menu() {
+	        _classCallCheck(this, Menu);
 	
-	        this.selector = '#modality-carousel';
+	        this.toggleSelector = '.js-toggle-menu';
+	        this.menu = '.js-header-menu';
+	
+	        this.init();
 	    }
 	
-	    _createClass(ModalityCarousel, [{
-	        key: 'initCarousel',
-	        value: function initCarousel() {
-	            console.log('init');
-	            $(this.selector).slick({
-	                infinite: true,
-	                slidesToShow: 4,
-	                slidesToScroll: 3
-	            });
-	        }
-	    }, {
-	        key: 'loadJSON',
-	        value: function loadJSON() {
-	            return axios.get("/assets/json/classes.json");
-	        }
-	    }, {
-	        key: 'loadContent',
-	        value: function loadContent() {
-	            var _this = this;
+	    _createClass(Menu, [{
+	        key: 'init',
+	        value: function init() {
+	            var self = this;
 	
-	            this.loadJSON().then(function (json) {
-	
-	                var classes = json.data;
-	
-	                var template = '\n                    {{#classes}}\n                        <div class="box-modality" data-type="{{type}}">\n                            <h3 class="title">{{title}}</h3>\n                            <p class="description">{{description}}</p>\n                        </div>\n                    {{/classes}}\n                ';
-	
-	                var html = Mustache.to_html(template, classes);
-	
-	                $(_this.selector).append(html);
-	                _this.initCarousel();
+	            $(this.toggleSelector).on('click', function () {
+	                $(self.menu).toggleClass('-open');
 	            });
 	        }
 	    }]);
 	
-	    return ModalityCarousel;
+	    return Menu;
 	}();
 	
-	exports.default = ModalityCarousel;
+	exports.default = Menu;
 
 /***/ })
 /******/ ]);
